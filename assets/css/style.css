@@ -1,0 +1,205 @@
+body {
+    width: 100%;
+    min-width: 650px;
+}
+
+header {
+    width: 100%;
+    height: 75px;
+    text-align: center;
+    color: white;
+    background: #020024;
+    background: linear-gradient(90deg, #006377 0%, #090979 65%, #110024 100%);
+}
+
+header h1 {
+    padding-top: 14px;
+    font-size: 40px;
+}
+
+.jumbotron {
+    position: relative;
+    left: 23%;
+    top: -190px;
+    width: 65%;
+    border: 2px solid black;
+}
+
+.jumbotron h1 {
+    font-size: 40px;
+}
+
+.jumbotron p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.overflow {
+    height: 200px;
+}
+
+#number-button{
+    margin-left: .2%;
+    width: 20%;
+}
+
+form {
+    margin-top: 10px;
+}
+
+#searchtext {
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: .5%;
+    width: 20%;
+}
+
+#search {
+    margin-left: .5%;
+    width: 20%;
+}
+
+#submit {
+    margin-left: .5%;
+    width: 20%;
+}
+
+#previous {
+    position: absolute;
+    left: 0px;
+    margin-left: .5%;
+    width: 20%;
+    min-width: 130px;
+    padding: 0px;
+}
+
+#previous p {
+    font-size: 20px;
+    margin: 0px;
+    margin-top: 10px;
+}
+
+#previous li {
+    width: 100%;
+    min-width: 130px;
+    margin-top: 10px;
+    background-color: #e0e0e0;
+}
+
+#previous button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#previous li:hover {
+    cursor: pointer;
+}
+
+#clearprev {
+    position: absolute;
+    left: 0px;
+    width: 20%;
+    margin-left: .5%;
+}
+
+#fivedayart {
+    position: relative;
+    width: fit-content;
+    top: -155px;
+    left: 23%;
+}
+
+#fivedayart p {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#fiveday {
+    margin-top: 10px;
+    margin-right: 0px;
+    padding: 0px;
+}
+
+#fiveday li {
+    margin-right: 2%;
+    width: 150px;
+    height: 200px;
+    background-color: #17182c;
+}
+
+#fiveday li h1 {
+    font-size: 25px;
+}
+
+#fiveday li p {
+    font-weight: normal;
+    font-size: 18px;
+}
+
+#day1 {
+    color: white;
+}
+
+#day2 {
+    position: absolute;
+    top: 41px;
+    left: 170px;
+    color: white;
+}
+
+#day3 {
+    position: absolute;
+    top: 41px;
+    left: 340px;
+    color: white;
+}
+
+#day4 {
+    position: absolute;
+    top: 41px;
+    left: 510px;
+    color: white;
+}
+
+#day5 {
+    position: absolute;
+    top: 41px;
+    left: 680px;
+    color: white;
+}
+
+@media screen and (max-width: 1080px) {
+    #day5 {
+        position: absolute;
+        top: 261px;
+        left: 0px;
+    }
+}
+
+@media screen and (max-width: 1040px) {
+    .jumbotron {
+        top: -220px;
+    }
+
+    #fivedayart {
+        top: -185px;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    #day4 {
+        position: absolute;
+        top: 261px;
+        left: 170px;
+    }
+}
+
+@media screen and (max-width: 692px) {
+    .jumbotron {
+        top: -250px;
+    }
+
+    #fivedayart {
+        top: -215px;
+    }
+}
