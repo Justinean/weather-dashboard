@@ -10,8 +10,7 @@ let previousEl = $("#previous");
 let clearPrev = $("#clearprev");
 var jumbotronText;
 let apiKey = "e3e0077e49dc54a039f6d6b6ddc8365e"
-var topPX = 325;
-clearPrev.css({ "top": topPX + "px" })
+var topPX = 0;
 var temperature;
 var success;
 if (JSON.parse(localStorage.getItem("previous")) === null) {
@@ -90,7 +89,7 @@ function addToHistory() {
     previousliEl.addClass("btn");
     previousEl.append(previousliEl);
     topPX += 48;
-    clearPrev.css({ "top": topPX + "px" })
+    clearPrev.css({ "top": (parseInt(clearPrev.css("top")) + parseInt(topPX))})
 
 }
 
@@ -211,9 +210,14 @@ clearPrev.on("click", function () {
     }
     previous = []
     localStorage.setItem("previous", JSON.stringify([]))
-    topPX = 325;
-    clearPrev.css({ "top": topPX + "px" })
+    topPX = 0;
+    clearPrev.css({ "top": "" })
 })
+
+interval = setInterval(function() {
+    clearPrev.css({"top": ""})
+    clearPrev.css({"top": (parseInt(clearPrev.css("top")) + parseInt(topPX)) + "px"})
+}, 250)
 
 $(function () {
     for (i in options) {

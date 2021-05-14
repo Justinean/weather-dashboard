@@ -96,8 +96,10 @@ form {
 }
 
 #clearprev {
-    position: absolute;
-    left: 0px;
+    position: relative;
+    min-width: 130px;
+    left: -21%;
+    top: 75px;
     width: 20%;
     margin-left: .5%;
 }
@@ -191,6 +193,12 @@ form {
         position: absolute;
         top: 261px;
         left: 170px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    #clearprev {
+        top: 95px;
     }
 }
 
