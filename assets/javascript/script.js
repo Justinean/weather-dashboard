@@ -51,7 +51,7 @@ function goToHistory(event) {
             break;
         }
     }
-    let url = `http://api.openweathermap.org/geo/1.0/zip?zip=${zip}&appid=${apiKey}`;
+    let url = `https://api.openweathermap.org/geo/1.0/zip?zip=${zip}&appid=${apiKey}`;
     fetch(url)
         .then(function (response) {
             if (response.status === 200) {
@@ -171,7 +171,7 @@ submitBtn.on("click", function () {
         }
     }
 
-    let url = `http://api.openweathermap.org/geo/1.0/zip?zip=${zip}&appid=${apiKey}`;
+    let url = `https://api.openweathermap.org/geo/1.0/zip?zip=${zip}&appid=${apiKey}`;
 
     fetch(url)
         .then(function (response) {
