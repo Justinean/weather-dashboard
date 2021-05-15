@@ -38,18 +38,12 @@ function goToHistory(event) {
         for (j in previous) {
             if (options[i]["name"].toLowerCase() === previous[object.attr("id")].country.toLowerCase()) {
                 var countryCode = options[i]["code"];
+                var countryName = options[i]["name"]
             }
         }
 
     }
-    var repeat = false;
     let zip = previous[object.attr("id")].zip + "," + countryCode;
-    for (i in previous) {
-        if (previous[i].country.toLowerCase() === dropEl.val().toLowerCase() && previous[i].zip === searchEl.val()) {
-            repeat = true;
-            break;
-        }
-    }
     let url = `https://api.openweathermap.org/geo/1.0/zip?zip=${zip}&appid=${apiKey}`;
     fetch(url)
         .then(function (response) {
@@ -59,17 +53,9 @@ function goToHistory(event) {
         })
         .then(function (data) {
             if (data !== undefined) {
-                jumbotronText = data.name + ", " + data.country + " (" + dateTime.now().toLocaleString(dateTime.DATE_SHORT) + ")"
+                jumbotronText = data.name + ", " + countryName + " (" + dateTime.now().toLocaleString(dateTime.DATE_SHORT) + ")"
                 lat = data.lat;
                 lon = data.lon;
-                if (repeat !== true) {
-                    previous.push({
-                        "name": data.name,
-                        "country": dropEl.val(),
-                        "zip": searchEl.val()
-                    })
-                    addToHistory();
-                }
                 localStorage.setItem("previous", JSON.stringify(previous))
                 displayWeather(lat, lon);
             }
@@ -107,21 +93,19 @@ function displayForecast(data) {
             fiveDayEl.children().eq(i).children().eq(1).text("☀");
         }
         fiveDayEl.children().eq(i).children().eq(0).text(dateTime.now().plus({ days: parseInt(i) + 1 }).toLocaleString(dateTime.DATE_SHORT));
-        fiveDayEl.children().eq(i).children().eq(2).text(`Temp: ${data.daily[(i + 1).toString()].temp.day}°F`);
-        fiveDayEl.children().eq(i).children().eq(3).text(`Wind: ${data.daily[(i + 1).toString()].wind_speed} MPH`);
+        fiveDayEl.children().eq(i).children().eq(2).text(`Temp: ${data.daily[(i + 1).toString()].temp.day}°C`);
+        fiveDayEl.children().eq(i).children().eq(3).text(`Wind: ${data.daily[(i + 1).toString()].wind_speed} KM`);
         fiveDayEl.children().eq(i).children().eq(4).text(`Humidity: ${data.daily[(i + 1).toString()].humidity}%`);
     }
 }
 
 function displayWeather(lat, lon) {
-    console.log(lat, lon)
-    let weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`
+    let weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
     fetch(weatherUrl)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data)
             if (data.current.weather[0].id >= 500 && data.current.weather[0].id < 600 || data.current.weather[0].id >= 300 && data.current.weather[0].id < 400) {
                 jumbotron.children().eq(0).text(jumbotronText + "🌧");
             } else if (data.current.weather[0].id >= 200 && data.current.weather[0].id < 300) {
@@ -133,8 +117,8 @@ function displayWeather(lat, lon) {
             } else if (data.current.weather[0].id === 800) {
                 jumbotron.children().eq(0).text(jumbotronText + "☀");
             }
-            jumbotron.children().eq(1).text(`Temp: ${data.current.temp}°F`);
-            jumbotron.children().eq(2).text(`Wind: ${data.current.wind_speed} MPH`);
+            jumbotron.children().eq(1).text(`Temp: ${data.current.temp}°C`);
+            jumbotron.children().eq(2).text(`Wind: ${data.current.wind_speed} KM`);
             jumbotron.children().eq(3).text(`Humidity: ${data.current.humidity}%`);
             jumbotron.children().eq(4).children().eq(0).text(`${data.current.uvi}`);
             jumbotron.children().eq(4).children().eq(0).css({ "padding-left": "10px", "padding-right": "10px", "border-radius": "5px" });
@@ -159,6 +143,7 @@ submitBtn.on("click", function () {
     for (i in options) {
         if (options[i]["name"].toLowerCase() === dropEl.val().toLowerCase()) {
             var countryCode = options[i]["code"];
+            var countryName = options[i]["name"]
         }
     }
     var repeat = false;
@@ -182,7 +167,8 @@ submitBtn.on("click", function () {
         })
         .then(function (data) {
             if (data != undefined) {
-                jumbotronText = data.name + ", " + data.country + " (" + dateTime.now().toLocaleString(dateTime.DATE_SHORT) + ")"
+                console.log(data)
+                jumbotronText = data.name + ", " + countryName + " (" + dateTime.now().toLocaleString(dateTime.DATE_SHORT) + ")"
                 lat = data.lat;
                 lon = data.lon;
                 if (repeat !== true) {
@@ -230,4 +216,5 @@ $(function () {
     }
     dropEl.selectmenu().selectmenu().selectmenu("menuWidget").addClass("overflow");
 })
+
 

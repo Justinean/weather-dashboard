@@ -249,3 +249,14 @@ var options = [
   { "code": "ZM", "name": "Zambia" },
   { "code": "ZW", "name": "Zimbabwe" }
 ]
+
+options.sort(function compare( a, b ) {
+  if ( a.name < b.name ){
+    return -1;
+  }
+  if ( a.name > b.name ){
+    return 1;
+  }
+  return 0;
+});
+
