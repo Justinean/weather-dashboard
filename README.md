@@ -36,7 +36,7 @@ Your searches will be saved so you can just click one button to search for that 
 
 ## Credits:
 
-Our Team and their GitHub profiles: 
+My github profile:
 [Justin](https://github.com/Justinean)
 
 ## License:
