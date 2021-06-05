@@ -100,7 +100,7 @@ function displayForecast(data) {
 }
 
 function displayWeather(lat, lon) {
-    let weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
+    let weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`
     fetch(weatherUrl)
         .then(function (response) {
             return response.json();
