@@ -39,6 +39,10 @@ Your searches will be saved so you can just click one button to search for that 
 My github profile:
 [Justin](https://github.com/Justinean)
 
+## API:
+Open weather geocoding api to get the precise longitude and latitude data. You can find the documentation [here](https://openweathermap.org/api/geocoding-api)
+Open weather one call api to get the current weather data. You can find the documentation [here](https://openweathermap.org/api/one-call-api).
+
 ## License:
 
 This application is licensed under the [MIT](https://github.com/microsoft/vscode/blob/main/LICENSE.txt) license. 
