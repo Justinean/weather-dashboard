@@ -93,8 +93,8 @@ function displayForecast(data) {
             fiveDayEl.children().eq(i).children().eq(1).text("☀");
         }
         fiveDayEl.children().eq(i).children().eq(0).text(dateTime.now().plus({ days: parseInt(i) + 1 }).toLocaleString(dateTime.DATE_SHORT));
-        fiveDayEl.children().eq(i).children().eq(2).text(`Temp: ${data.daily[(i + 1).toString()].temp.day}°C`);
-        fiveDayEl.children().eq(i).children().eq(3).text(`Wind: ${data.daily[(i + 1).toString()].wind_speed} KM`);
+        fiveDayEl.children().eq(i).children().eq(2).text(`Temp: ${data.daily[(i + 1).toString()].temp.day}°F`);
+        fiveDayEl.children().eq(i).children().eq(3).text(`Wind: ${data.daily[(i + 1).toString()].wind_speed} MPH`);
         fiveDayEl.children().eq(i).children().eq(4).text(`Humidity: ${data.daily[(i + 1).toString()].humidity}%`);
     }
 }
@@ -117,8 +117,8 @@ function displayWeather(lat, lon) {
             } else if (data.current.weather[0].id === 800) {
                 jumbotron.children().eq(0).text(jumbotronText + "☀");
             }
-            jumbotron.children().eq(1).text(`Temp: ${data.current.temp}°C`);
-            jumbotron.children().eq(2).text(`Wind: ${data.current.wind_speed} KM`);
+            jumbotron.children().eq(1).text(`Temp: ${data.current.temp}°F`);
+            jumbotron.children().eq(2).text(`Wind: ${data.current.wind_speed} MPH`);
             jumbotron.children().eq(3).text(`Humidity: ${data.current.humidity}%`);
             jumbotron.children().eq(4).children().eq(0).text(`${data.current.uvi}`);
             jumbotron.children().eq(4).children().eq(0).css({ "padding-left": "10px", "padding-right": "10px", "border-radius": "5px" });
