@@ -20,7 +20,7 @@ postal code and country.
 
 ## Installation:
 
-Play through the story [here](https://justinean.github.io/weather-dashboard/). 
+Get to the application [here](https://justinean.github.io/weather-dashboard/). 
 
 All of the files are also available through a simple download and clone from this GitHub, which you can then open in your browser from your local machine. 
 
